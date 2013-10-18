@@ -87,7 +87,7 @@ em { font-style: italic; }
 	&::-moz-placeholder {
 		@content;
 	}
-	&:-ms-input-placeholder {  
+	&:-ms-input-placeholder {
 		@content;
 	}
 }
