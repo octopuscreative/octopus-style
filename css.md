@@ -283,4 +283,12 @@ em { font-style: italic; }
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$ieval})";
 	filter: alpha(opacity=$ieval);
 }
+
+@mixin user-select {
+	-webkit-touch-callout: none;
+		-webkit-user-select: none;
+			 -moz-user-select: none;
+				-ms-user-select: none;
+						user-select: none;
+}
 ```
