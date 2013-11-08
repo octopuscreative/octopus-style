@@ -50,7 +50,7 @@ Cascading Style Sheets (CSS) enable the beautiful internet you know and love; fr
 
 ``` css
 /* Reset + base: */
-* { margin: 0; padding: 0; border: 0; }
+* { margin: 0; padding: 0; border: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 html { overflow-y: scroll; } /* always show scrollbar in non-IE */
 
