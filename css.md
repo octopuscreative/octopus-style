@@ -296,4 +296,8 @@ em { font-style: italic; }
     font-size: ($size) + px;
     font-size: ($size / 16) + rem;
 }
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
 ```
