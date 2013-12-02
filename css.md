@@ -292,12 +292,12 @@ em { font-style: italic; }
 	user-select: none;
 }
 
-@mixin font-size($size: 16){
+@mixin font-size($size: 16) {
     font-size: ($size) + px;
     font-size: ($size / 16) + rem;
 }
 
-@function calc-percent($target, $container) {
-  @return ($target / $container) * 100%;
+@function calc-percent($target-width, $container-width) {
+  @return ($target-width / $container-width) * 100%;
 }
 ```
