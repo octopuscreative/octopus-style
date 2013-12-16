@@ -137,25 +137,7 @@ em { font-style: italic; }
 	-webkit-animation-delay: $delay;
 }
 
-@mixin text-shadow ($val1: none, $val2: none, $val3: none, $val4: none, $val5: none, $val6: none) {
-	$val: $val1, $val2, $val3, $val4, $val5, $val6;
-
-	@if $val6 == none {
-		$val: $val1, $val2, $val3, $val4, $val6;
-	}
-	@if $val5 == none {
-		$val: $val1, $val2, $val3, $val4;
-	}
-	@if $val4 == none {
-		$val: $val1, $val2, $val3;
-	}
-	@if $val3 == none {
-		$val: $val1, $val2;
-	}
-	@if $val2 == none {
-		$val: $val1;
-	}
-
+@mixin text-shadow ($val) {
 	text-shadow: $val;
 	-webkit-text-shadow: $val;
 	-moz-text-shadow: $val;
@@ -191,22 +173,7 @@ em { font-style: italic; }
 	-ms-box-sizing: $sizing;
 }
 
-@mixin box-shadow ($val1: none, $val2: none, $val3: none, $val4: none, $val5: none) {
-	$val: $val1, $val2, $val3, $val4, $val5;
-
-	@if $val5 == none {
-		$val: $val1, $val2, $val3, $val4;
-	}
-	@if $val4 == none {
-		$val: $val1, $val2, $val3;
-	}
-	@if $val3 == none {
-		$val: $val1, $val2;
-	}
-	@if $val2 == none {
-		$val: $val1;
-	}
-
+@mixin box-shadow ($val) {
 	box-shadow: $val;
 	-webkit-box-shadow: $val;
 	-moz-box-shadow: $val;
