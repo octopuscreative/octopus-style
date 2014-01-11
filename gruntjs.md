@@ -49,10 +49,42 @@ module.exports = function(grunt) {
 };
 ```
 
-To add new [Grunt Plugins](http://gruntjs.com/plugins) to your project
+To add new [Grunt Plugins](http://gruntjs.com/plugins) to your project:
 
 1. Install the npm module `$ npm install module-name --save-dev` - This will also declare this module as a dev dependency in your package.json file.
 2. Register the new plugin in your gruntfile.js (e.g. `grunt.loadNpmTasks('grunt-contrib-concat');`)
+
+## Load-grunt-tasks
+
+Typically, every Grunt plugin that is used must be explicitly declared with `grunt.loadNpmTasks()`. Often times this leads to a long list of plugins, like below:
+
+```javascript
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-grunticon');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-svgmin');
+```
+
+By using the plugin load-grunt-tasks, we can make this list much more concise:
+
+```javascript
+    require('load-grunt-tasks')(grunt);
+```
+
+Load-grunt-tasks works by using a [glob pattern](http://en.wikipedia.org/wiki/Glob_(programming)) to load any dev dependencies listed in your package.json file.
+
+For example, if you wanted to load only grunt-contrib tasks, you could use:
+
+```javascript
+    require('load-grunt-tasks')(grunt, {pattern: 'grunt-contrib-*'});
+```
+
+To install load-grunt-tasks, simply run `$ npm install load-grunt-tasks --save-dev` from the same directory as your package.json file.
 
 ## Commonly Used Plugins
 * [grunt-contrib-clean](https://npmjs.org/package/grunt-contrib-clean)
@@ -65,3 +97,4 @@ To add new [Grunt Plugins](http://gruntjs.com/plugins) to your project
 * [grunt-contrib-coffee](https://npmjs.org/package/grunt-contrib-coffee)
 * [grunt-grunticon](https://npmjs.org/package/grunt-grunticon)
 * [grunt-processhtml](https://npmjs.org/package/grunt-processhtml)
+* [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks)
