@@ -59,21 +59,21 @@ To add new [Grunt Plugins](http://gruntjs.com/plugins) to your project:
 Typically, every Grunt plugin that is used must be explicitly declared with `grunt.loadNpmTasks()`. Often times this leads to a long list of plugins, like below:
 
 ```javascript
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-coffee');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-grunticon');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-svgmin');
+grunt.loadNpmTasks('grunt-contrib-concat');
+grunt.loadNpmTasks('grunt-contrib-coffee');
+grunt.loadNpmTasks('grunt-contrib-sass');
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-clean');
+grunt.loadNpmTasks('grunt-grunticon');
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.loadNpmTasks('grunt-svgmin');
 ```
 
 By using the plugin load-grunt-tasks, we can make this list much more concise:
 
 ```javascript
-    require('load-grunt-tasks')(grunt);
+require('load-grunt-tasks')(grunt);
 ```
 
 Load-grunt-tasks works by using a [glob pattern](http://en.wikipedia.org/wiki/Glob_(programming)) to load any dev dependencies listed in your package.json file.
@@ -81,7 +81,7 @@ Load-grunt-tasks works by using a [glob pattern](http://en.wikipedia.org/wiki/Gl
 For example, if you wanted to load only grunt-contrib tasks, you could use:
 
 ```javascript
-    require('load-grunt-tasks')(grunt, {pattern: 'grunt-contrib-*'});
+require('load-grunt-tasks')(grunt, {pattern: 'grunt-contrib-*'});
 ```
 
 To install load-grunt-tasks, simply run `$ npm install load-grunt-tasks --save-dev` from the same directory as your package.json file.
@@ -98,3 +98,153 @@ To install load-grunt-tasks, simply run `$ npm install load-grunt-tasks --save-d
 * [grunt-grunticon](https://npmjs.org/package/grunt-grunticon)
 * [grunt-processhtml](https://npmjs.org/package/grunt-processhtml)
 * [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks)
+
+# Sample Gruntfile.js
+
+```javascript
+module.exports = function(grunt) {
+
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
+        coffee: {
+            compile: {
+                files: {
+                    'src/js/vendor/coffee-vendor-compiled.js' : 'src/js/vendor/*.coffee',
+                    'src/js/coffee-application-compiled.js' : [
+                        'src/js/global/*.coffee',
+                        'src/js/*.coffee',
+                        'src/js/vendor/!(*).coffee'
+                    ]
+                }
+            }
+        },
+
+        concat: {
+            vendor: {
+                src: 'src/js/vendor/*.js',
+                dest: 'lib/js/vendor.js'
+            },
+
+            applicaton: {
+                src: [
+                    'src/js/global/*.js',
+                    'src/js/*.js',
+                    'src/js/vendor/!(*).js' // Ignore /vendor
+                ],
+                dest: 'lib/js/application.js'
+            }
+        },
+
+        uglify: {
+            vendor: {
+                src: 'lib/js/vendor.js',
+                dest: 'lib/js/vendor.min.js'
+            },
+
+            application: {
+                src: 'lib/js/application.js',
+                dest: 'lib/js/application.min.js'
+            }
+        },
+
+        clean: [
+            'src/js/vendor/coffee-vendor-compiled.js',
+            'src/js/coffee-application-compiled.js'
+        ],
+
+        sass: {
+            dist: {
+                options: {
+                    style: 'compressed'
+                },
+                files: {
+                    'lib/css/application.min.css' : 'src/css/application.scss'
+                }
+            }
+        },
+
+        svgmin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/icons',
+                    src: ['**/*.svg'],
+                    dest: 'src/icons',
+                }]
+            }
+        },
+
+        grunticon: {
+            icons: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/icons',
+                    src: ['*.svg', '*.png'],
+                    dest: 'lib/icons'
+                }],
+                options: {
+                    template: 'src/icons/css.hbs',
+                    customselectors: {
+                        "*": [".icon-$1--before:before", ".icon-$1--after:after"]
+                    }
+                }
+            }
+        },
+
+        imagemin: {
+            images: {
+                expand: true,
+                cwd: 'src/images',
+                src: '*.{png,jpg,gif}',
+                dest: 'lib/images'
+            }
+        },
+
+        /*==========  Watcher  ==========*/
+
+        watch: {
+            scripts: {
+                files: ['src/js/*.js', 'src/js/*.coffee', 'src/js/*/*.js', 'src/js/*/*.coffee'],
+                tasks: ['coffee', 'concat', 'uglify', 'clean'],
+                options: {
+                    spawn: false
+                }
+            },
+
+            css: {
+                files: ['src/css/*.scss', 'src/css/*.css', 'src/css/*/*.scss', 'src/css/*/*.css'],
+                tasks: ['sass'],
+                options: {
+                    spawn: false
+                }
+            },
+
+            icons: {
+                files: ['src/icons/*.svg', 'src/icons/*.png'],
+                tasks: ['svgmin','grunticon'],
+                options: {
+                    spawn: false
+                }
+            },
+
+            images: {
+                files: ['src/images/*.{png,jpg,gif}'],
+                tasks: ['imagemin'],
+                options: {
+                    spawn: false
+                }
+            }
+        }
+
+    });
+
+    // Where we tell Grunt we plan to use this plug-in.
+    require('load-grunt-tasks')(grunt);
+
+    // Where we tell Grunt what to do when we type "grunt" into the terminal.
+    grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'clean', 'sass', 'svgmin', 'grunticon', 'imagemin']);
+    grunt.registerTask('dev', ['watch']);
+
+};
+```
