@@ -4,7 +4,7 @@
 2. Add your gruntfile.js to the root directory
 3. Run `$ npm install` from the directory that holds package.json to install grunt & its dependencies. 
 
-```
+```json
 // package.json
 
 {
@@ -17,7 +17,7 @@
 ```
 
 
-```
+```javascript
 // gruntfile.js
 
 module.exports = function(grunt) {
