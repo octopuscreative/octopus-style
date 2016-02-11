@@ -59,7 +59,7 @@
 * As much as you can keep shared state in one place (usually the Vue instance).
 * When pre-registering data (data: -> thing: '') use the same type that will be used with real data. I.e don't use null values because that can cause problems in IE.
 * Don't include large bits of vue markup in a page's html, but instead move into the component's template.
-* Don't use <template> inside of <select> elements to build options lists, lest your select break in IE.
+* Don't use `<template>` inside of `<select>` elements to build options lists, lest your select break in IE.
 
 # jQuery
 
