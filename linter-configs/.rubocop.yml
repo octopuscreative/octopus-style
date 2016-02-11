@@ -1,0 +1,52 @@
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'tmp/**/*'
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/TrailingComma:
+  Enabled: true
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: no_empty_lines
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
+  SpaceBeforeBlockParameters: false
+
+Style/CaseIndentation:
+  IndentOneStep: true
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
