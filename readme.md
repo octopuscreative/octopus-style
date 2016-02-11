@@ -13,12 +13,15 @@
 # JavaScript
 
 * When possible (and sensible), write new JavaScript in CoffeeScript instead.
-* Libraries like jQuery are incredibly useful, but knowing how to write "raw" JavaScript is also incredibly important
-* Indent with 2 spaces
-* Use camelCase for variables (Constructor functions and CoffeeScript classes should be in PascalCase)
-* Semicolons are **not** optional
-* Understand the difference between `==` and `===`, and use them appropriately
-* Use [IIFEs](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) to help with scope, readability, and more
+* Libraries like jQuery are incredibly useful, but knowing how to write "raw" JavaScript is also incredibly important.
+* Indent with 2 spaces.
+* Use camelCase for variables (Constructor functions and CoffeeScript classes should be in PascalCase).
+* Use single quotes for strings except to avoid escaping.
+* Commas should have a space after them.
+* Always handle the err function parameter.
+* Multiple blank lines not allowed.
+* Understand the difference between `==` and `===`, and use them appropriately.
+* Use [IIFEs](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) to help with scope, readability, and more.
 * Avoid binding to the same class in both your CSS and JavaScript.
 * Spaces, curlies and newlines for `if/else/while/try` are almost always **not** optional
   ``` javascript
@@ -46,6 +49,9 @@
 * Keep variables in the proper scope (remember your `var` statements)
 * "Private" variables should be prefixed with an underscore
 
+# Vue.js
+
+* TODO
 
 # jQuery
 
