@@ -48,6 +48,7 @@
   ```
 * Keep variables in the proper scope (remember your `var` statements)
 * "Private" variables should be prefixed with an underscore
+* Take advice from http://ricostacruz.com/rsjs
 
 # Vue.js
 
@@ -79,6 +80,8 @@
 # CoffeeScript
 
 * Intent with two spaces
+* Prefer CoffeeScript [comprehensions](https://coffeescript-cookbook.github.io/chapters/arrays/list-comprehensions) over regular for loops
+* Take advice from https://coffeescript-cookbook.github.io
 
 # Ruby
 
@@ -103,6 +106,7 @@
 # SCSS
 
 * Prefer mixins to @extend.
+* Take advice from http://rscss.io
 * Do not nest scss selectors more than levels 3 deep.
 * For a selector with no child selectors, its curly braces and rules should be on one line
   ``` scss
