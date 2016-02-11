@@ -137,7 +137,7 @@
 * Indent with 2 spaces
 * Indent all block-level elements
 * Use semantic tags when possible, but make sure to check your use case if you're not sure it's the right tag (Things like menu, nav, figure, and cite have very specific semantic meanings that might surprise you).
-* Use <button> tags over <a> tags for actions.
+* Use `<button>` tags over `<a>` tags for actions.
 * Text should not be be indented or on a new line inside, for example, a `p` tag, unless it has sibling nodes.
   ``` html
   <p>Lorem ipsum dolor sit amet.</p>
