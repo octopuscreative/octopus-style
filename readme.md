@@ -86,6 +86,7 @@
 
 # CSS
 
+* Consider [Expressive CSS](http://johnpolacek.github.io/expressive-css/)
 * When possible (and sensible), write new CSS in SCSS instead.
 * Use soft tabs (2 spaces) for indentation.
 * Prefer dashes over camelCasing in class names.
