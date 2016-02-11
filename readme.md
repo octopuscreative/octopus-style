@@ -97,7 +97,7 @@
 * Put closing braces } of rule declarations on a new line.
 * Put blank lines between rule declarations.
 * Use Autoprefixer to generate vendor prefixes based on the project-specific browser support that is needed.
-* Rems are preferred over pixels (designer px / base font size = rem value).
+* Rems are preferred over pixels (desired px / base font size = rem value).
 * Avoid binding to the same class in both your CSS and JavaScript.
 
 # SCSS
