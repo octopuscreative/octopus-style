@@ -8,7 +8,7 @@
 
 # Linting
 
-* All projects should be linted via gulp or an equivelent build tool to ensure code quality and that all code adheres to Octopus' code style guidelines. For convenience we've provided our linter configs for various linters.
+* All projects should be linted via gulp or an equivelent build tool to ensure code quality and that all code adheres to Octopus' code style guidelines. For convenience we've provided our linter configs for various linters. As another convenience we've included our preferred gulp setup [here](https://github.com/octopuscreative/gulp-util) if you're looking for somewhere to start.
 
 # Git
 
