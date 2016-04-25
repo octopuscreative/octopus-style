@@ -6,6 +6,10 @@
 * Don't write code that guesses at future functionality.
 * Don't commit commented out code unless there is a specific reason to.
 
+# Linting
+
+* All projects should be linted via gulp or an equivelent build tool to ensure code quality and that all code adheres to Octopus' code style guidelines. For convenience we've provided our linter configs for various linters.
+
 # Git
 
 * Once a project has been established, prefer [GitHub Flow](https://guides.github.com/introduction/flow/).
