@@ -1,3 +1,5 @@
+// https://github.com/stylelint/stylelint-config-standard
+
 {
   "extends": "stylelint-config-standard"
 }
