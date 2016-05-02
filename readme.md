@@ -96,7 +96,29 @@
 
 # Ruby
 
-* TODO
+* Indent with two spaces.
+* Single emptyline between method definitions 
+* Methods should not be more than 6-ish lines each. (break long methods into new methods)
+* Classes should have few public methods
+* Each object should be limited in what it knows about other objects. user.profile (good) user.profile.links (bad)
+
+# Rails
+
+* Controllers should not manipulate objects that are persisted.
+
+```
+#bad
+user.role = 'buyer'
+user.save!
+```
+
+```
+#better
+user.make_buyer!.save
+```
+
+* Erb should only contain view layer code and should not trigger any new sql queries 
+* Controllers should rarely have methods outside the standard rest methods. 
 
 # CSS
 
