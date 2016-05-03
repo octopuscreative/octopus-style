@@ -106,13 +106,13 @@
 
 * Controllers should not manipulate objects that are persisted.
 
-```
+```ruby
 #bad
 user.role = 'buyer'
 user.save!
 ```
 
-```
+```ruby
 #better
 user.make_buyer!.save
 ```
